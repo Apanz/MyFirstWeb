@@ -1,0 +1,528 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+    /* 取消无序列表的小点 */
+}
+
+a {
+    text-decoration: none;
+    /* 取消链接的下划线 */
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.head_nav {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px 0px 50px;
+    z-index: 10;
+    /* border-bottom: 1.5px solid black; */
+}
+
+.logo {
+    position: relative;
+    width: 30%;
+}
+
+.logo img {
+    width: 100%;
+}
+
+nav {
+    position: relative;
+    width: 65%;
+    bottom: 1vw;
+}
+
+nav input {
+    position: absolute;
+    display: none;
+    opacity: 1;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    padding: 1vw;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: .5s;
+}
+
+nav ul li a:hover {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+header hr {
+    position: relative;
+    border: 1px solid black;
+    top: -5vw;
+    margin: 0 15px;
+    /* margin: -60px 10px 60px 10px; */
+}
+
+.swipe {
+    /* 相对定位 */
+    position: relative;
+    width: 90vw;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.swipe ul {
+    padding: 0;
+    width: calc(90vw * 4);
+    transition: 0.5s;
+}
+
+.swipe li {
+    float: left;
+    width: 90vw;
+    height: auto;
+    list-style: none;
+}
+
+.swipe li img {
+    width: 100%;
+    height: 100%;
+}
+
+/* for属性值以“indicator”开头的所有label元素（指示器） */
+.swipe label[for^="indicator"] {
+    /* 绝对定位 */
+    position: absolute;
+    bottom: 5vh;
+    width: 2%;
+    height: 5%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* for属性值为“indicator1”的label元素 */
+.swipe label[for="indicator1"] {
+    left: 42%;
+}
+
+/* for属性值为“indicator2”的label元素 */
+.swipe label[for="indicator2"] {
+    left: 47%;
+}
+
+/* for属性值为“indicator3”的label元素 */
+.swipe label[for="indicator3"] {
+    left: 52%;
+}
+
+.swipe label[for="indicator4"] {
+    left: 57%;
+}
+
+/* 选中指示器设置ul的margin-left */
+#indicator1:checked~ul {
+    margin-left: 0;
+}
+
+#indicator2:checked~ul {
+    margin-left: -90vw;
+}
+
+#indicator3:checked~ul {
+    margin-left: -180vw;
+}
+
+#indicator4:checked~ul {
+    margin-left: -270vw;
+}
+
+/* 选中指示器改变指示器颜色 */
+#indicator1:checked~label[for="indicator1"] {
+    background-color: #fff;
+}
+
+#indicator2:checked~label[for="indicator2"] {
+    background-color: #fff;
+}
+
+#indicator3:checked~label[for="indicator3"] {
+    background-color: #fff;
+}
+
+#indicator4:checked~label[for="indicator4"] {
+    background-color: #fff;
+}
+
+.content_title {
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bolder;
+    font-family: "century gothic", sans-serif;
+    margin: 45px auto;
+    letter-spacing: 1em;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    width: 30%;
+    line-height: 2;
+    background: linear-gradient(to right, #656565, #000000) no-repeat left bottom;
+    background-size: 0 0.4vw;
+    transition: background-size .5s;
+}
+
+.content_title:hover {
+    background-size: 100% 0.4vw;
+}
+
+.fixed_nav {
+    position: fixed;
+    top: 30%;
+    right: 2%;
+    background-color: #78c6e8;
+    width: 5%;
+    height: auto;
+    padding: 1vw;
+    border-radius: 50%;
+    /* box-shadow: inset 0.26vw 0.26vw 0.13vw rgba(0, 0, 0, 0.3), inset -0.26vw -0.26vw 0.26vw rgba(255, 255, 255, 0.7), -0.33vw -0.33vw 0.33vw rgba(0, 0, 0, 0.4); */
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    cursor: pointer;
+    transition: all 0.5s
+}
+
+.fixed_nav:hover {
+    width: 5vw;
+    top: 29%;
+    /* transform: translateY(2vw) scale(1.1 1.1); */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+
+}
+
+.fixed_nav img {
+    width: 100%;
+}
+
+main {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.character_card{
+    height: 100%;
+    margin: 4vw 7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+.character_card:hover{
+    transform: translateY(-15px);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 10px, rgba(0, 0, 0, 0.3) 0px 10px 20px -5px, rgba(0, 0, 0, 0.2) 0px -5px 0px inset;
+}
+.character_card input{
+    display: none;
+}
+.card{
+    width: 400px;
+    height: 550px;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+    transition: all 0.6s ease-in-out all 0.6s ease-out;
+    text-align: center;
+}
+.img{
+    width: 400px;
+    height: 225px;
+    transition: all 0.6s;
+
+}
+.img1{
+    background: url(../images/fulilian.jpg) no-repeat center center;
+    background-size: cover;
+}
+.img2{
+    background: url(../images/xinmeier.jpg) no-repeat center center;
+    background-size: cover;
+}
+.img3{
+    background: url(../images/feilun.jpg) no-repeat center center;
+    background-size: cover;
+}
+.img4{
+    background: url(../images/xiutaerke.jpg) no-repeat center center;
+    background-size: cover;
+}
+.img5{
+    background: url(../images/aize.png) no-repeat center center;
+    background-size: cover;
+}
+.img6{
+    background: url(../images/haita.png) no-repeat center center;
+    background-size: cover;
+}
+.title{
+    font-size: 30px;
+    letter-spacing: 0.35em;
+    color: #4e4d4d;
+    margin: 30px 0 20px 0;
+    transition: all 0.6s;
+    transition-delay: 0.2s;
+}
+.desc{
+    width: 400px;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    text-align: justify;
+    padding: 0 30px;
+    line-height: 30px;
+    opacity: 1;
+    color: rgb(155, 155, 155);
+}
+.content{
+    position: relative;
+    top: -5vw;
+    display: none;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 0 20%;
+    line-height: 3;
+}
+.content p{
+    margin: 3vw 0;
+    font-size: 1.2vw;
+    text-indent: 2em;
+    letter-spacing: 0.1em;
+    text-align: justify;
+    display: table;
+}
+#select_label{
+    display: block;
+    position: absolute;
+    width: 400px;
+    height: 550px;
+    z-index: 90;
+}
+
+*[id^="select"]:checked~.card #select_label{
+    width: 90vw;
+    height: 100%;
+    z-index: 90;
+}
+*[id^="select"]:checked~.card{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+*[id^="select"]:checked~.card .img{
+    width: 100vw;
+    height: 550px;
+}
+*[id^="select"]:checked~.card .title{
+    transform: translateY(-250px);
+    color: #fff;
+    font-size: 70px;
+}
+*[id^="select"]:checked~.card .desc{
+    display: none;
+    opacity: 0;
+}
+*[id^="select"]:checked~.card .content{
+    display: block;
+    width: 100%;
+    transform: translateY(-50px) 0.2s;
+}
+
+footer {
+    height: 20vh;
+    background-color: black;
+    color: white;
+    font-size: 1.1vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.1em;
+    line-height: 2;
+}
+
+.info_left .info_right {
+    display: flex;
+    flex-direction: column;
+}
+
+.info_container {
+    margin: 0 4vw;
+}
+
+.info_right .info_container:last-of-type {
+    text-align: right;
+}
+
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 0.8vw;
+    }
+
+    nav ul li a {
+        padding: 1vw;
+        color: black;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: .5s;
+    }
+}
+
+@media screen and (max-width: 700px) and (min-width: 520px) {
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 1.5vw;
+    }
+
+    nav ul li a {
+        padding: 1vw;
+        color: black;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: .5s;
+    }
+}
+@media screen and (max-width: 520px) {
+    nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 9999;
+        user-select: none;
+    }
+
+    nav .bt {
+        position: absolute;
+        top: 4vw;
+        right: 5vw;
+        width: 5vw;
+        height: 4vw;
+        z-index: 999;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    nav .bt span {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 0.8vw;
+        right: 0;
+        border-radius: 1vw;
+        background-color: black;
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+    }
+
+    nav input:checked~.bt span {
+        background-color: white;
+
+    }
+
+    nav input:checked~.bt span:nth-child(1) {
+        transform: translateY(1.6vw) rotate(45deg);
+    }
+
+    nav input:checked~.bt span:nth-child(2) {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    nav input:checked~.bt span:nth-child(3) {
+        transform: translateY(-1.6vw) rotate(-45deg);
+    }
+
+    nav input:checked~ul {
+        transform: translateX(0);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    nav ul {
+        padding: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 40vw;
+        height: 100vh;
+        z-index: 99;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transform: translateX(100%);
+        transition: all 0.5s ease-in-out;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 3vh auto;
+        height: auto;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    nav input:checked~ul li {
+        transition: all 0.5s ease-in-out;
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 4vw 0;
+        font-size: 3vw;
+        color: white;
+        transition: all 0.3s ease-in;
+    }
+    nav ul li a:hover {
+        background-color: white;
+        color: black;
+    }
+}
